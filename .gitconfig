@@ -1,5 +1,25 @@
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[include]
+    path = ~/.config/delta/themes/mocha.gitconfig
+
+[delta]
+    side-by-side = true
+    navigate = true
+    features = catppuccin-mocha
+
+[merge]
+    conflictStyle = diff3
+
+[diff]
+    colorMoved = default
+
 [user]
-	name = Felix Korovin
-	email = felix@captain-eye.com
+    name = Felix Korovin
+    email = felix@captain-eye.com
 [alias]
     lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all

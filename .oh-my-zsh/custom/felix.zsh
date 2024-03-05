@@ -22,6 +22,10 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 # Terramate
 complete -C $HOME/go/bin/terramate terramate
 
+alias bat="batcat"
+alias vim="nvim"
+alias vi="nvim"
+
 alias assume="source /usr/local/bin/assume"
 alias dev="assume Development/AdministratorAccessV2"
 alias mgmt="assume Captains-eye/AdministratorAccessV2"
