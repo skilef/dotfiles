@@ -26,7 +26,7 @@ __my_prompt() {
     fi
 
     if [ "$show_my_prompt" = true ]; then
-        echo "[$aws_ps1$git_ps1]"
+        echo "[$aws_ps1$git_ps1] "
     fi
 }
 
