@@ -2,6 +2,34 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+__aws_ps1() {
+  if [ -n "$AWS_PROFILE" ]; then
+      printf "󰸏 "
+    readonly profile
+    if [[ $AWS_PROFILE = Development* ]]; then
+      printf "dev"
+    elif [[ $AWS_PROFILE = Production* ]]; then
+        printf "prod"
+    else
+        printf "mgmt"
+    fi
+  fi
+}
+
+__my_prompt() {
+    aws_ps1=$(__aws_ps1)
+    git_ps1=$(__git_ps1 "  %s")
+    show_my_prompt=false
+
+    if [ -n "$aws_ps1" ] || [ -n "$git_ps1" ]; then
+        show_my_prompt=true
+    fi
+
+    if [ "$show_my_prompt" = true ]; then
+        echo "[$aws_ps1$git_ps1]"
+    fi
+}
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -57,7 +85,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}$(__my_prompt)\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -71,6 +99,7 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -127,23 +156,6 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PNPM_HOME:$PATH"
-
-# Aliases
-alias vim="nvim"
-alias vi="nvim"
-alias pn="pnpm"
-alias cat="bat"
-
-alias assume="source /usr/local/bin/assume"
-alias dev="assume Development/AdministratorAccessV2"
-alias mgmt="assume Captains-eye/AdministratorAccessV2"
-alias prod="assume Production/AdministratorAccessV2"
-alias ipfix="sudo sysctl -w net.ipv4.ip_forward=1"
-alias runner="ssh root@lab10dev.ships.development.captain-eye.net"
-
-alias infra="cd ~/workspace/Backend/captain-infra && mgmt && . ./helpers/env.sh"
-alias agent='cd ~/workspace/Backend/captain-agent && source $(poetry env info --path)/bin/activate'
-
 # Autocomplete
 complete -C $HOME/go/bin/terramate terramate
 
