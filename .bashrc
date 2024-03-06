@@ -4,7 +4,7 @@
 
 __aws_ps1() {
   if [ -n "$AWS_PROFILE" ]; then
-    printf "\033[1;33m󰸏 \033[0m"
+    printf "\033[1;33m󰸏 "
     readonly profile
     if [[ $AWS_PROFILE = Development* ]]; then
       printf "dev"
@@ -13,12 +13,13 @@ __aws_ps1() {
     else
         printf "mgmt"
     fi
+    printf "\033[0m"
   fi
 }
 
 __my_prompt() {
     aws_ps1=$(__aws_ps1)
-    git_ps1=$(__git_ps1 " \033[0;31m\033[0m %s")
+    git_ps1=$(__git_ps1 " \033[0;31m %s\033[0m")
     show_my_prompt=false
 
     if [ -n "$aws_ps1" ] || [ -n "$git_ps1" ]; then
@@ -26,7 +27,17 @@ __my_prompt() {
     fi
 
     if [ "$show_my_prompt" = true ]; then
-        echo "[$aws_ps1$git_ps1] "
+        printf "$aws_ps1$git_ps1 \033[1;37m|\033[0m "
+    fi
+}
+
+__tf_toggle() {
+    if [[ $PWD == *captain-infra/environments/development* ]]; then
+        cd $(echo $PWD | sed 's/development/production/')
+        prod
+    elif [[ $PWD == *captain-infra/environments/production* ]]; then
+        cd $(echo $PWD | sed 's/production/development/')
+        dev
     fi
 }
 
@@ -144,6 +155,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+PROMPT_DIRTRIM=3
 
 # ENV vars
 export PNPM_HOME="$HOME/.local/share/pnpm"
