@@ -79,7 +79,7 @@ ZSH_TMUX_UNICODE=true
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm terraform zsh-autosuggestions poetry tmux zsh-bat)
+plugins=(git nvm terraform zsh-autosuggestions poetry tmux zsh-bat zsh-syntax-highlighting web-search)
 
 source $ZSH/oh-my-zsh.sh
 
