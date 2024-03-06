@@ -5,12 +5,12 @@
     diffFilter = delta --color-only
 
 [include]
-    path = ~/.config/delta/themes/mocha.gitconfig
+    path = ~/.config/delta/themes/frappe.gitconfig
 
 [delta]
     side-by-side = true
     navigate = true
-    features = catppuccin-mocha
+    features = catppuccin-frappe
 
 [merge]
     conflictStyle = diff3
