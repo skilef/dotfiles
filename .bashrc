@@ -4,7 +4,7 @@
 
 __aws_ps1() {
   if [ -n "$AWS_PROFILE" ]; then
-      printf "󰸏 "
+    printf "\033[1;33m󰸏 \033[0m"
     readonly profile
     if [[ $AWS_PROFILE = Development* ]]; then
       printf "dev"
@@ -18,7 +18,7 @@ __aws_ps1() {
 
 __my_prompt() {
     aws_ps1=$(__aws_ps1)
-    git_ps1=$(__git_ps1 "  %s")
+    git_ps1=$(__git_ps1 " \033[0;31m\033[0m %s")
     show_my_prompt=false
 
     if [ -n "$aws_ps1" ] || [ -n "$git_ps1" ]; then
@@ -145,7 +145,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
 # ENV vars
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export NX_NO_CLOUD=true
@@ -156,8 +155,6 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PNPM_HOME:$PATH"
-# Autocomplete
-complete -C $HOME/go/bin/terramate terramate
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
@@ -165,3 +162,4 @@ complete -C $HOME/go/bin/terramate terramate
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
     exec tmux
 fi
+

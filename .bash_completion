@@ -1,0 +1,2 @@
+complete -C $HOME/go/bin/terramate terramate
+complete -C /usr/bin/terraform terraform
