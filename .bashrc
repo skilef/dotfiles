@@ -116,13 +116,40 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Start tmux
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
-fi
+# ENV vars
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export NX_NO_CLOUD=true
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 
+# PATH modification
 export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PNPM_HOME:$PATH"
 
+# Aliases
 alias vim="nvim"
 alias vi="nvim"
+alias pn="pnpm"
+alias cat="bat"
+
+alias assume="source /usr/local/bin/assume"
+alias dev="assume Development/AdministratorAccessV2"
+alias mgmt="assume Captains-eye/AdministratorAccessV2"
+alias prod="assume Production/AdministratorAccessV2"
+alias ipfix="sudo sysctl -w net.ipv4.ip_forward=1"
+alias runner="ssh root@lab10dev.ships.development.captain-eye.net"
+
+alias infra="cd ~/workspace/Backend/captain-infra && mgmt && . ./helpers/env.sh"
+alias agent='cd ~/workspace/Backend/captain-agent && source $(poetry env info --path)/bin/activate'
+
+# Autocomplete
+complete -C $HOME/go/bin/terramate terramate
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Start tmux
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+    exec tmux
+fi
