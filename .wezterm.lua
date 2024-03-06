@@ -12,6 +12,7 @@ end)
 config.color_scheme = 'Catppuccin Mocha'
 config.window_decorations = "NONE"
 config.hide_tab_bar_if_only_one_tab = true
+config.window_background_opacity = 0.95
 
 return config
 
