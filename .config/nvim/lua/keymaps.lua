@@ -14,6 +14,8 @@ keymap("n", "<leader>O", "O<Esc>", { silent = true, desc = "New line above" })  
 
 keymap('n', '<leader>gg', '<cmd>LazyGit<CR>')
 
+keymap('n', '<C-n>', '<cmd>NvimTreeToggle<CR>')
+
 -- Better window navigation
 -- navigate buffers
 keymap("n", "<tab>", ":bnext<cr>", { silent = true, desc = "Next buffer" })           -- Next buffer

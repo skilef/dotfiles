@@ -6,9 +6,13 @@ return {
         "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
     },
-    opts = {
-        window = {
-            position = "current"
-        }
-    }
+    config = function()
+        require("neo-tree").setup({
+            window = {
+                position = "current",
+            }
+        })
+        vim.keymap.set("n", "<C-n>", "<cmd>Neotree toggle<CR>",
+            { silent = true, desc = "Toggle file tree" })
+    end
 }
