@@ -16,22 +16,34 @@ return {
         config = true
     },
     {
-        "zbirenbaum/copilot-cmp",
-        dependencies = {
-            {
-
-                "zbirenbaum/copilot.lua",
-                event = "InsertEnter",
-                config = function()
-                    require("copilot").setup({
-                        suggestion = { enabled = false },
-                        panel = { enabled = false }
-                    })
-                end,
-            }
-        },
-        config = true
+        "zbirenbaum/copilot.lua",
+        event = "InsertEnter",
+        config = function()
+            require("copilot").setup({
+                suggestion = {
+                    auto_trigger = true
+                }
+            })
+        end
     },
+    
+    ----  I am using Copilot with ghost text so the coplilot-cmp is not needed
+    -- {
+    --     "zbirenbaum/copilot-cmp",
+    --     dependencies = {
+    --         {
+    --             "zbirenbaum/copilot.lua",
+    --             event = "InsertEnter",
+    --             config = function()
+    --                 require("copilot").setup({
+    --                     suggestion = { enabled = false },
+    --                     panel = { enabled = false }
+    --                 })
+    --             end,
+    --         }
+    --     },
+    --     config = true
+    -- },
     {
         'hrsh7th/nvim-cmp',
         event = "InsertEnter",
@@ -138,6 +150,7 @@ return {
                     "lua_ls",
                     "terraformls",
                     "pyright",
+                    "tsserver",
                 },
                 handlers = {
                     lsp_zero.default_setup,
@@ -170,7 +183,7 @@ return {
                     "isort",
                 },
             })
-
         end
     },
+
 }

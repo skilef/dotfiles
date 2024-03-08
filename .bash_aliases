@@ -3,6 +3,7 @@ alias vim="nvim"
 alias vi="nvim"
 alias pn="pnpm"
 alias cat="bat"
+alias top="btop"
 alias assume="source /usr/local/bin/assume"
 
 ## aws environments
