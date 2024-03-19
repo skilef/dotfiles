@@ -26,24 +26,6 @@ return {
             })
         end
     },
-    
-    ----  I am using Copilot with ghost text so the coplilot-cmp is not needed
-    -- {
-    --     "zbirenbaum/copilot-cmp",
-    --     dependencies = {
-    --         {
-    --             "zbirenbaum/copilot.lua",
-    --             event = "InsertEnter",
-    --             config = function()
-    --                 require("copilot").setup({
-    --                     suggestion = { enabled = false },
-    --                     panel = { enabled = false }
-    --                 })
-    --             end,
-    --         }
-    --     },
-    --     config = true
-    -- },
     {
         'hrsh7th/nvim-cmp',
         event = "InsertEnter",
@@ -61,11 +43,8 @@ return {
             require('luasnip.loaders.from_vscode').lazy_load()
 
             cmp.setup({
-                -- if you don't know what is a "source" in nvim-cmp read this:
-                -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/autocomplete.md#adding-a-source
                 sources = {
                     { name = 'path' },
-                    { name = 'copilot' },
                     { name = 'nvim_lsp' },
                     { name = 'luasnip', keyword_length = 2 },
                     { name = 'buffer',  keyword_length = 3 },
@@ -83,7 +62,6 @@ return {
                     }),
                     ['<Tab>'] = cmp_action.luasnip_supertab(),
                     ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
-                    ['<C-Space>'] = cmp.mapping.complete(),
                 }),
                 formatting = {
                     format = require('lspkind').cmp_format({
