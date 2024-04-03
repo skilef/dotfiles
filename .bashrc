@@ -31,16 +31,6 @@ __my_prompt() {
     fi
 }
 
-__tf_toggle() {
-    if [[ $PWD == *captain-infra/environments/development* ]]; then
-        cd $(echo $PWD | sed 's/development/production/')
-        prod
-    elif [[ $PWD == *captain-infra/environments/production* ]]; then
-        cd $(echo $PWD | sed 's/production/development/')
-        dev
-    fi
-}
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -171,3 +161,6 @@ export PATH="$PNPM_HOME:$PATH"
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
