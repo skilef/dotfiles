@@ -42,8 +42,7 @@ alias runner="ssh root@lab10dev.ships.development.captain-eye.net"
 
 ## project shortcuts
 
-# captain-infra
-alias infra="cd ~/workspace/Backend/captain-infra && mgmt && . ./helpers/env.sh"
+# alias infra="cd ~/workspace/Backend/captain-infra && mgmt && . ./helpers/env.sh"
 # captain-agent
 alias agent='cd ~/workspace/Backend/captain-agent && source $(poetry env info --path)/bin/activate'
 # dotfiles directory

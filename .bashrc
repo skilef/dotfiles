@@ -27,8 +27,21 @@ __my_prompt() {
     fi
 
     if [ "$show_my_prompt" = true ]; then
-        printf "$aws_ps1$git_ps1 \033[1;37m|\033[0m "
+        printf "$aws_ps1$git_ps1 "
     fi
+}
+
+work_tmux () {
+    tmux new-session -s work -n infra -c ~/workspace/Backend/captain-infra \; \
+        send-keys 'mgmt && . ./helpers/env.sh && clear && vi .' C-m \; \
+        split-window -v -p 5 -c ~/workspace/Backend/captain-infra \; \
+        send-keys 'mgmt && . ./helpers/env.sh && clear' C-m \; \
+        new-window -n dotfiles -c ~/workspace/dotfiles \; \
+        send-keys 'clear && vi .' C-m \; \
+        new-window -n agent -c ~/workspace/Backend/captain-agent \; \
+        send-keys 'source $(poetry env info --path)/bin/activate && vi .' C-m \; \
+        split-window -v -p 5 -c ~/workspace/Backend/captain-agent \; \
+        send-keys 'source $(poetry env info --path)/bin/activate && clear' C-m \; 
 }
 
 # If not running interactively, don't do anything
@@ -164,3 +177,4 @@ export PATH="$PNPM_HOME:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
