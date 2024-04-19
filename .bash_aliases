@@ -39,10 +39,12 @@ alias ipfix="sudo sysctl -w net.ipv4.ip_forward=1"
 # gitlab runner
 alias runner="ssh root@lab10dev.ships.development.captain-eye.net"
 
+## Tmux shortcuts
+alias tkill="tmux kill-session"
 
 ## project shortcuts
 
-# alias infra="cd ~/workspace/Backend/captain-infra && mgmt && . ./helpers/env.sh"
+alias infra="cd ~/workspace/Backend/captain-infra && mgmt && . ./helpers/env.sh"
 # captain-agent
 alias agent='cd ~/workspace/Backend/captain-agent && source $(poetry env info --path)/bin/activate'
 # dotfiles directory

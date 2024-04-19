@@ -33,15 +33,23 @@ __my_prompt() {
 
 work_tmux () {
     tmux new-session -s work -n infra -c ~/workspace/Backend/captain-infra \; \
-        send-keys 'mgmt && . ./helpers/env.sh && clear && vi .' C-m \; \
-        split-window -v -p 5 -c ~/workspace/Backend/captain-infra \; \
+        send-keys 'vi .' C-m \; \
+        split-window -v -p 25 -c ~/workspace/Backend/captain-infra \; \
         send-keys 'mgmt && . ./helpers/env.sh && clear' C-m \; \
         new-window -n dotfiles -c ~/workspace/dotfiles \; \
-        send-keys 'clear && vi .' C-m \; \
+        send-keys 'vi .' C-m \; \
         new-window -n agent -c ~/workspace/Backend/captain-agent \; \
         send-keys 'source $(poetry env info --path)/bin/activate && vi .' C-m \; \
-        split-window -v -p 5 -c ~/workspace/Backend/captain-agent \; \
-        send-keys 'source $(poetry env info --path)/bin/activate && clear' C-m \; 
+        split-window -v -p 25 -c ~/workspace/Backend/captain-agent \; \
+        send-keys 'source $(poetry env info --path)/bin/activate && clear' C-m \; \
+        new-window -n ci -c ~/workspace/Backend/captain-ci \; \
+        send-keys 'vi .' C-m \; \
+        split-window -v -p 25 -c ~/workspace/Backend/captain-ci \; \
+        new-window -n serverless -c ~/workspace/Backend/captain-serverless \; \
+        send-keys 'vi .' C-m \; \
+        split-window -v -p 25 -c ~/workspace/Backend/captain-serverless \; \
+        new-window -n notes -c ~/Documents/Notes \; \
+        send-keys 'vi .' C-m \; 
 }
 
 # If not running interactively, don't do anything
