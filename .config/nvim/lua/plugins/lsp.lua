@@ -127,8 +127,10 @@ return {
                 ensure_installed = {
                     "lua_ls",
                     "terraformls",
+                    "tflint",
                     "pyright",
                     "tsserver",
+                    "yamlls"
                 },
                 handlers = {
                     lsp_zero.default_setup,
@@ -137,29 +139,17 @@ return {
                         local lua_opts = lsp_zero.nvim_lua_ls()
                         require('lspconfig').lua_ls.setup(lua_opts)
                     end,
-
                 }
             })
 
-            local null_ls = require('null-ls')
-            local null_opts = lsp_zero.build_options('null-ls', {})
-
-            null_ls.setup({
-                on_attach = function(client, bufnr)
-                    null_opts.on_attach(client, bufnr)
-                end,
-                sources = {
-                    null_ls.builtins.formatting.isort,
-                    null_ls.builtins.formatting.black,
-                    null_ls.builtins.diagnostics.terraform_validate
-                }
-            })
+            lsp_zero.build_options('null-ls', {})
 
             require('mason-null-ls').setup({
                 ensure_installed = {
                     "black",
                     "isort",
                 },
+                handlers = {}
             })
         end
     },
