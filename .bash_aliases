@@ -24,7 +24,7 @@ alias tf="terraform"
 alias tfi="terraform init"
 alias tfp="terraform plan"
 alias tfa="terraform apply"
-alias tmg="terramate generate"
+alias cctx="curl -sL https://raw.githubusercontent.com/cloudposse/terraform-null-label/master/exports/context.tf -o context.tf"
 
 ## aws environments
 alias mgmt="assume Captains-eye/AdministratorAccessV2"

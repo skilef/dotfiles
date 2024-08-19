@@ -173,8 +173,12 @@ PROMPT_DIRTRIM=3
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export NX_NO_CLOUD=true
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+export JAVA_HOME="/usr/lib/jvm/jdk-22.0.2-oracle-x64"
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
 
 # PATH modification
+export PATH="${M2_HOME}/bin:${PATH}"
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"

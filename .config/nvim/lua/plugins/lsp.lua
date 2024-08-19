@@ -130,7 +130,9 @@ return {
                     "tflint",
                     "pyright",
                     "tsserver",
-                    "yamlls"
+                    "yamlls",
+                    "java_language_server",
+                    "bashls",
                 },
                 handlers = {
                     lsp_zero.default_setup,
@@ -148,6 +150,7 @@ return {
                 ensure_installed = {
                     "black",
                     "isort",
+                    "shfmt",
                 },
                 handlers = {}
             })
