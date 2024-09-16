@@ -2,56 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-__aws_ps1() {
-  if [ -n "$AWS_PROFILE" ]; then
-    printf "\033[1;33m󰸏 "
-    readonly profile
-    if [[ $AWS_PROFILE = Development* ]]; then
-      printf "dev"
-    elif [[ $AWS_PROFILE = Production* ]]; then
-        printf "prod"
-    else
-        printf "mgmt"
-    fi
-    printf "\033[0m"
-  fi
-}
-
-__my_prompt() {
-    aws_ps1=$(__aws_ps1)
-    git_ps1=$(__git_ps1 " \033[0;31m %s\033[0m")
-    show_my_prompt=false
-
-    if [ -n "$aws_ps1" ] || [ -n "$git_ps1" ]; then
-        show_my_prompt=true
-    fi
-
-    if [ "$show_my_prompt" = true ]; then
-        printf "$aws_ps1$git_ps1 "
-    fi
-}
-
-work_tmux () {
-    tmux new-session -s work -n infra -c ~/workspace/Backend/captain-infra \; \
-        send-keys 'vi .' C-m \; \
-        split-window -v -p 25 -c ~/workspace/Backend/captain-infra \; \
-        send-keys 'mgmt && . ./helpers/env.sh && clear' C-m \; \
-        new-window -n dotfiles -c ~/workspace/dotfiles \; \
-        send-keys 'vi .' C-m \; \
-        new-window -n agent -c ~/workspace/Backend/captain-agent \; \
-        send-keys 'source $(poetry env info --path)/bin/activate && vi .' C-m \; \
-        split-window -v -p 25 -c ~/workspace/Backend/captain-agent \; \
-        send-keys 'source $(poetry env info --path)/bin/activate && clear' C-m \; \
-        new-window -n ci -c ~/workspace/Backend/captain-ci \; \
-        send-keys 'vi .' C-m \; \
-        split-window -v -p 25 -c ~/workspace/Backend/captain-ci \; \
-        new-window -n serverless -c ~/workspace/Backend/captain-serverless \; \
-        send-keys 'vi .' C-m \; \
-        split-window -v -p 25 -c ~/workspace/Backend/captain-serverless \; \
-        new-window -n notes -c ~/Documents/Notes \; \
-        send-keys 'vi .' C-m \; 
-}
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -107,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}$(__my_prompt)\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -121,7 +71,6 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -156,7 +105,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
+# enabbleopt highlight_syntax=bleopt highlight_syntac=le programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
@@ -191,3 +140,7 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 . "$HOME/.cargo/env"
+
+source ~/.local/share/blesh/ble.sh
+
+eval "$(starship init bash)"

@@ -30,6 +30,8 @@ alias cctx="curl -sL https://raw.githubusercontent.com/cloudposse/terraform-null
 alias mgmt="assume Captains-eye/AdministratorAccessV2"
 alias dev="assume Development/AdministratorAccessV2"
 alias prod="assume Production/AdministratorAccessV2"
+alias fin="assume Finance/AdministratorAccessV2"
+alias ai="assume AI/AdministratorAccess"
 
 ## fixes
 # fix ip forwarding problem
@@ -37,7 +39,7 @@ alias ipfix="sudo sysctl -w net.ipv4.ip_forward=1"
 
 ## ssh shortcuts
 # gitlab runner
-alias runner="ssh root@lab10dev.ships.development.captain-eye.net"
+alias runner="ssh root@172.22.129.145"
 
 ## Tmux shortcuts
 alias tkill="tmux kill-session"
