@@ -11,6 +11,9 @@ right_format = """$nodejs$python$terraform$aws"""
 truncate_to_repo = false
 truncation_length = 0
 
+[aws]
+format = '[$symbol($profile)]($style)'
+
 [aws.profile_aliases]
 "Development/AdministratorAccessV2" = "dev"
 "Production/AdministratorAccessV2" = "prod"
