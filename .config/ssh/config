@@ -74,3 +74,4 @@ Host ai-data
   HostName 10.90.50.10
   User ec2-user
   IdentityFile ~/.ssh/data-instance.pub
+

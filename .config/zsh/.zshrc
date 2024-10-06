@@ -1,4 +1,31 @@
+setopt prompt_subst
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit
+compinit
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+# ENV vars
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export NX_NO_CLOUD=true
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+export JAVA_HOME="/usr/lib/jvm/jdk-22.0.2-oracle-x64"
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+
+# PATH modification
+export PATH="${M2_HOME}/bin:${PATH}"
+export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PNPM_HOME:$PATH"
+
+############### Aliases ################
+
 ## commands
+
 
 # NeoVim
 alias vim="nvim"
@@ -48,3 +75,17 @@ alias tkill="tmux kill-session"
 
 # dotfiles directory
 alias dotfiles="cd ~/workspace/dotfiles"
+
+############################################
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+. "$HOME/.cargo/env"
+
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+export LANG=en_US.UTF-8
