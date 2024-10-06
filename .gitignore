@@ -1,2 +1,2 @@
-.config/tmux/plugins
-.config/zsh/.zcompdump
+tmux/plugins
+zsh/.zcompdump

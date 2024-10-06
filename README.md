@@ -6,7 +6,7 @@ Install GNU stow:
 ```bash
 sudo apt install stow
 ```
-Go to the parent directory of the repo and run:
+Go to the dotfiles directory and run:
 ```bash
-stow dotfiles
+stow .
 ```
