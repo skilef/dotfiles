@@ -12,7 +12,7 @@ end)
 config.color_scheme = 'Catppuccin Frappe'
 config.window_decorations = "NONE"
 config.hide_tab_bar_if_only_one_tab = true
-config.window_background_opacity = 0.95
+config.window_background_opacity = 1
 config.window_padding = {
     left = 3,
     right = 3,

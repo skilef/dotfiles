@@ -58,6 +58,15 @@ Host lab1
   User root
   IdentityFile ~/.ssh/ship.pub
 
+
+############ Lab 25 ############
+
+# LAN
+Host lab25l
+  HostName 192.168.1.36
+  User root
+  IdentityFile ~/.ssh/ship.pub
+
 ############ Lab 10 ############
 
 # VPN
