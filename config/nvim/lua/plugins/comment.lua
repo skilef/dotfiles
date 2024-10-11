@@ -1,6 +1,6 @@
 return {
-    'numToStr/Comment.nvim',
-    lazy = false,
-    config = true
+    -- 'numToStr/Comment.nvim',
+    -- lazy = false,
+    -- config = true
 }
 

@@ -1,7 +1,7 @@
 local keymap = vim.keymap.set
 
---Remap space as leader key
-vim.g.mapleader = " "
+-- Insert --
+keymap("i", "jj", "<Esc>", {noremap=false})
 
 -- Normal --
 keymap("n", "<leader>h", ":nohlsearch<cr>", { silent = true, desc = "Remove search highlight" }) -- Remove search highlight
