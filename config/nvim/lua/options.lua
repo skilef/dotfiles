@@ -38,3 +38,4 @@ opt.completeopt = 'menuone,noselect'
 
 -- <space> is the leader key
 vim.g.mapleader = ' '
+

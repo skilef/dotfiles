@@ -14,7 +14,7 @@ keymap("n", "<leader>O", "O<Esc>", { silent = true, desc = "New line above" })  
 
 keymap('n', '<leader>gg', '<cmd>LazyGit<CR>')
 
-keymap('n', '<C-n>', '<cmd>NvimTreeToggle<CR>')
+keymap("n", "<C-n>", "<cmd>Neotree toggle<CR>", { silent = true, desc = "Toggle file tree" })
 
 -- Better window navigation
 -- navigate buffers
@@ -33,3 +33,4 @@ keymap("v", ">", ">gv", { silent = true, desc = "Right Indentation" }) -- Right 
 -- move text up and down
 keymap("v", "<a-j>", ":m '>+1<cr>gv=gv", { silent = true, desc = "Move line down" }) -- Alt-j
 keymap("v", "<a-k>", ":m '<-2<cr>gv=gv", { silent = true, desc = "Move line up" })   -- Alt-k
+
