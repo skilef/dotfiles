@@ -60,10 +60,10 @@ alias tfa="terraform apply"
 alias cctx="curl -sL https://raw.githubusercontent.com/cloudposse/terraform-null-label/master/exports/context.tf -o context.tf"
 
 ## assume aws environments
-alias mgmt="assume Captains-eye/AdministratorAccessV2"
-alias dev="assume Development/AdministratorAccessV2"
-alias prod="assume Production/AdministratorAccessV2"
-alias fin="assume Finance/AdministratorAccessV2"
+alias mgmt="assume Captains-eye/AdministratorAccess"
+alias dev="assume Development/AdministratorAccess"
+alias prod="assume Production/AdministratorAccess"
+alias fin="assume Finance/AdministratorAccess"
 alias ai="assume AI/AdministratorAccess"
 
 ## fixes

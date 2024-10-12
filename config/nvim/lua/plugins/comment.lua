@@ -3,4 +3,3 @@ return {
     lazy = false,
     config = true
 }
-

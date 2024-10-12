@@ -80,7 +80,7 @@ Host lab10
 ####################
 
 Host ai-data
-  HostName 10.90.50.10
+  HostName 10.90.52.66
   User ec2-user
   IdentityFile ~/.ssh/data-instance.pub
 

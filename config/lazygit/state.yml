@@ -1,5 +1,6 @@
 lastupdatecheck: 0
 recentrepos:
+- /home/felix/workspace/terraform-modules/ecs-service
 - /home/felix/workspace/dotfiles
 - /home/felix/workspace/devops/captain-infra
 startuppopupversion: 5

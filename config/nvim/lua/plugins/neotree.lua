@@ -5,15 +5,11 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
-	"3rd/image.nvim"
+        "3rd/image.nvim"
     },
     opts = {
-	window = {
-	  position = "current",
-	}
+        window = {
+            position = "current",
+        }
     }
-    -- config = function()
-    --     require("neo-tree").setup({
-    --     })
-    -- end
 }

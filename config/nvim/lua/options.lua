@@ -1,5 +1,4 @@
 local opt = vim.opt
-
 -- Set highlight on search
 opt.hlsearch = true
 
@@ -7,6 +6,7 @@ opt.hlsearch = true
 opt.number = true
 
 -- Show relative line numbers
+
 opt.relativenumber = true
 
 -- Disable mouse
@@ -34,8 +34,30 @@ opt.signcolumn = 'yes'
 opt.clipboard = 'unnamedplus'
 
 -- On auto-complete, show a menu even for one result and do not select the first result automatically
-opt.completeopt = 'menuone,noselect'
+-- opt.completeopt = 'menuone,noselect'
+
+-- Tab is written in spaces
+opt.expandtab = true
+
+-- Tab width is 4
+opt.tabstop = 4
+
+-- Indent width is 4
+opt.shiftwidth = 4
+
+-- Smart indentation on a newline
+opt.smartindent = true
+
+-- Show whitespace characters
+opt.list = true
 
 -- <space> is the leader key
 vim.g.mapleader = ' '
 
+
+-- Diagnostic signs
+local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
