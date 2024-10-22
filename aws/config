@@ -53,5 +53,5 @@ aws_secret_access_key=yvu4ntpKabdGH3gUMwrVIjmG8+SUoxQu117k2Ol2
 
 [profile genius-mailer]
 region = us-east-1
-aws_access_key_id=AKIAVLY4HK2UAHXQOXXG
-aws_secret_access_key=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
+aws_access_key_id = AKIAVLY4HK2UF65A7V7U
+aws_secret_access_key = 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

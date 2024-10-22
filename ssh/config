@@ -84,3 +84,8 @@ Host ai-data
   User ec2-user
   IdentityFile ~/.ssh/data-instance.pub
 
+Host dev-bastion
+  HostName  10.40.52.33
+  User ubuntu
+  IdentityFile ~/.ssh/dev-bastion.pub
+
