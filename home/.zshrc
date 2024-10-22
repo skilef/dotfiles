@@ -45,7 +45,7 @@ alias vi="nvim"
 
 # Shortcuts
 alias pn="pnpm"
-alias c="clear"
+alias cl="clear"
 
 # Granted
 alias assume="source /usr/local/bin/assume"
@@ -100,3 +100,50 @@ export FZF_CTRL_T_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'bat -n --color=always {}'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+export FZF_ALT_C_OPTS="
+  --walker-skip .git,node_modules,target
+  --preview 'tree -C {}'"
+
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --highlight-line \
+  --info=inline-right \
+  --ansi \
+  --layout=reverse \
+  --border=none
+  --color=bg+:#2d3f76 \
+  --color=bg:#1e2030 \
+  --color=border:#589ed7 \
+  --color=fg:#c8d3f5 \
+  --color=gutter:#1e2030 \
+  --color=header:#ff966c \
+  --color=hl+:#65bcff \
+  --color=hl:#65bcff \
+  --color=info:#545c7e \
+  --color=marker:#ff007c \
+  --color=pointer:#ff007c \
+  --color=prompt:#65bcff \
+  --color=query:#c8d3f5:regular \
+  --color=scrollbar:#589ed7 \
+  --color=separator:#ff966c \
+  --color=spinner:#ff007c \
+"
+
+# ripgrep->fzf->vim [QUERY]
+rfv() (
+  RELOAD='reload:rg --column --color=always --smart-case {q} || :'
+  OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
+            nvim {1} +{2}     # No selection. Open the current line in Vim.
+          else
+            nvim +cw -q {+f}  # Build quickfix list for the selected items.
+          fi'
+  fzf --disabled --ansi --multi \
+      --bind "start:$RELOAD" --bind "change:$RELOAD" \
+      --bind "enter:become:$OPENER" \
+      --bind "ctrl-o:execute:$OPENER" \
+      --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
+      --delimiter : \
+      --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
+      --preview-window '~4,+{2}+4/3,<80(up)' \
+      --query "$*"
+)
