@@ -12,9 +12,7 @@ keymap("n", "x", "\"_x", { silent = true, desc = "Delete without yanking" })    
 keymap("n", "<leader>o", "o<Esc>", { silent = true, desc = "New line below" })                   -- New line below
 keymap("n", "<leader>O", "O<Esc>", { silent = true, desc = "New line above" })                   -- New line above
 
-keymap('n', '<leader>gg', '<cmd>LazyGit<CR>')
-
-keymap("n", "<C-n>", "<cmd>Neotree toggle<CR>", { silent = true, desc = "Toggle file tree" })
+-- keymap('n', '<leader>gg', '<cmd>LazyGit<CR>')
 
 -- Better window navigation
 -- navigate buffers
@@ -34,28 +32,6 @@ keymap("v", ">", ">gv", { silent = true, desc = "Right Indentation" }) -- Right 
 keymap("v", "<a-j>", ":m '>+1<cr>gv=gv", { silent = true, desc = "Move line down" }) -- Alt-j
 keymap("v", "<a-k>", ":m '<-2<cr>gv=gv", { silent = true, desc = "Move line up" })   -- Alt-k
 
-
 keymap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
 keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
 keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
-
-vim.api.nvim_create_autocmd('LspAttach', {
-    desc = 'LSP actions',
-    callback = function(event)
-        local opts = { buffer = event.buf }
-
-        -- these will be buffer-local keybindings
-        -- because they only work if you have an active language server
-
-        keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-        keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-        keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-        keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-        keymap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-        keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-        keymap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-        keymap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-        keymap({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-        keymap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-    end
-})

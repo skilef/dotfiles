@@ -26,7 +26,7 @@ export PATH="$PNPM_HOME:$PATH"
 
 ## commands
 
-# Eza
+# Eza - ls replacement
 alias l="eza -l --icons --git -a"
 alias lt="eza --tree --level=2 --long --icons --git"
 alias ltree="eza --tree --level=2  --icons --git"
@@ -34,13 +34,14 @@ alias ltree="eza --tree --level=2  --icons --git"
 # NeoVim
 alias vim="nvim"
 alias vi="nvim"
+alias v="nvim"
 
-# Tool replacements
+# Alternative to find
+alias fd="fdfind"
+
 # alias cat="bat"
 # alias top="btop"
-# alias ls="exa"
 # alias dig="dog"
-# alias find="fdfind"
 # alias df="duf"
 
 # Shortcuts
