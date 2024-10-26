@@ -1,6 +1,8 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/felix/workspace/dotfiles
+- /home/felix/workspace/genius-mailer
+- /home/felix/workspace/devops/captain-infra
 startuppopupversion: 5
 customcommandshistory: []
 hidecommandlog: false

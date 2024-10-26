@@ -30,6 +30,7 @@ format = "[ $path ]($style)"
 truncation_symbol = "…/"
 
 [aws]
+symbol = " 󰸏 "
 format = '[$symbol($profile)]($style)'
 
 [aws.profile_aliases]

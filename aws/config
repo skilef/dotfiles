@@ -45,13 +45,3 @@ granted_sso_account_id     = 920373026764
 granted_sso_role_name      = AIAccess
 common_fate_generated_from = aws-sso
 credential_process         = granted credential-process --profile AI/AIAccess
-
-[profile temp]
-region = eu-central-1
-aws_access_key_id=AKIASSTGK6WRJBWWRVVB
-aws_secret_access_key=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
-
-[profile genius-mailer]
-region = us-east-1
-aws_access_key_id = AKIAVLY4HK2UF65A7V7U
-aws_secret_access_key = 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
