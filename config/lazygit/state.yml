@@ -1,8 +1,17 @@
 lastupdatecheck: 0
 recentrepos:
-- /home/felix/workspace/dotfiles
-- /home/felix/workspace/genius-mailer
 - /home/felix/workspace/devops/captain-infra
+- /home/felix/workspace/terraform-modules/ecs-service
+- /home/felix/workspace/backend/captain-agent
+- /home/felix/workspace/backend/captain-serverless
+- /home/felix/workspace/backend/captain-microservices
+- /home/felix/workspace/hawk-for-thunderbird/daily-report
+- /home/felix/workspace/hawk-for-thunderbird/thunderbird-addon
+- /home/felix/workspace/hawk-for-thunderbird/infra
+- /home/felix/workspace/genius-mailer
+- /home/felix/workspace/terraform-modules/lambda
+- /home/felix/workspace/vios
+- /home/felix/workspace/dotfiles
 startuppopupversion: 5
 customcommandshistory: []
 hidecommandlog: false

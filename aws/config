@@ -1,3 +1,19 @@
+[profile Network/AdministratorAccess]
+granted_sso_start_url      = https://captain-eye.awsapps.com/start
+granted_sso_region         = eu-central-1
+granted_sso_account_id     = 664418979534
+granted_sso_role_name      = AdministratorAccess
+common_fate_generated_from = aws-sso
+credential_process         = granted credential-process --profile Network/AdministratorAccess
+
+[profile Identity/AdministratorAccess]
+granted_sso_start_url      = https://captain-eye.awsapps.com/start
+granted_sso_region         = eu-central-1
+granted_sso_account_id     = 061039808066
+granted_sso_role_name      = AdministratorAccess
+common_fate_generated_from = aws-sso
+credential_process         = granted credential-process --profile Identity/AdministratorAccess
+
 [profile Development/AdministratorAccess]
 granted_sso_start_url      = https://captain-eye.awsapps.com/start
 granted_sso_region         = eu-central-1
@@ -45,3 +61,11 @@ granted_sso_account_id     = 920373026764
 granted_sso_role_name      = AIAccess
 common_fate_generated_from = aws-sso
 credential_process         = granted credential-process --profile AI/AIAccess
+
+[profile Hawk/AdminAccess]
+granted_sso_start_url      = https://hawk-for-thunderbird.awsapps.com/start
+granted_sso_region         = us-east-1
+granted_sso_account_id     = 368889517736
+granted_sso_role_name      = AdminAccess
+common_fate_generated_from = aws-sso
+credential_process         = granted credential-process --profile Hawk/AdminAccess

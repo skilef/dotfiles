@@ -36,3 +36,9 @@ vault = "Work"
 
 [[ssh-keys]]
 vault = "Homelab"
+
+[[ssh-keys]]
+vault = "Hawk"
+
+[[ssh-keys]]
+vault = "Vios"

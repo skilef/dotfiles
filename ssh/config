@@ -22,12 +22,23 @@ Host github.com
   HostName github.com
   IdentityFile ~/.ssh/github.pub
 
+  # Bitbucket.org
+Host bitbucket.org
+    HostName bitbucket.org
+    IdentityFile ~/.ssh/bitbucket.pub
+
+Host vios.co.il
+  HostName vios.co.il
+  User root
+  IdentityFile ~/.ssh/vios.pub
+
 ########################################## Work ##########################################
 
 # GitLab.com
 Host gitlab.com
     HostName gitlab.com
     IdentityFile ~/.ssh/gitlab.pub
+
 
 ####################
 # Office computers #
@@ -80,12 +91,17 @@ Host lab10
 ####################
 
 Host ai-data
-  HostName 10.90.52.66
+  HostName 10.90.51.192
   User ec2-user
   IdentityFile ~/.ssh/data-instance.pub
 
 Host dev-bastion
-  HostName  10.40.52.33
+  HostName bastion-private.dev.captain-eye.com
   User ubuntu
   IdentityFile ~/.ssh/dev-bastion.pub
 
+
+Host some
+    HostName 223-back.ships.prod.captain-eye.com
+    User root
+    IdentityFile ~/.ssh/ship.pub
