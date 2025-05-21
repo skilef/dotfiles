@@ -5,7 +5,6 @@ return {
         'hrsh7th/cmp-nvim-lsp'
     },
     config = function()
-
         local keymap = vim.keymap.set
 
         vim.api.nvim_create_autocmd('LspAttach', {
@@ -24,10 +23,9 @@ return {
                 keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
                 keymap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
                 keymap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-                -- keymap({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+                keymap({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
                 keymap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
             end
         })
-
     end
 }

@@ -10,5 +10,5 @@ return {
             yaml = true,
             markdown = true
         }
-    }
+    },
 }

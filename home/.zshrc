@@ -18,10 +18,11 @@ export MAVEN_HOME=/opt/maven
 # PATH modification
 export PATH="${M2_HOME}/bin:${PATH}"
 export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH="$PATH:/opt/cli53"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PNPM_HOME:$PATH"
-
+export PATH="$HOME/.local/share/vdhcoapp:$PATH"
 ############### Aliases ################
 
 ## commands
@@ -61,10 +62,8 @@ alias tfa="terraform apply"
 alias cctx="curl -sL https://raw.githubusercontent.com/cloudposse/terraform-null-label/master/exports/context.tf -o context.tf"
 
 ## assume aws environments
-alias mgmt="assume Captains-eye/AdministratorAccess"
 alias dev="assume Development/AdministratorAccess"
 alias prod="assume Production/AdministratorAccess"
-alias fin="assume Finance/AdministratorAccess"
 alias ai="assume AI/AdministratorAccess"
 
 ## fixes
@@ -89,7 +88,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-. "$HOME/.cargo/env"
 
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml

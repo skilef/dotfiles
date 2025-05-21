@@ -45,35 +45,22 @@ Host gitlab.com
 ####################
 
 # Office GitLab runner VPN
-Host runner
-  HostName 172.22.160.218
-  User root
-  IdentityFile ~/.ssh/ship.pub
 
-Host runnerl
+Host runner
   HostName 192.168.1.19
   User root
   IdentityFile ~/.ssh/ship.pub
 
 ############ Lab 1 ############
 
-# LAN
-Host lab1l
+Host lab1
   HostName 192.168.1.10
   User root
   IdentityFile ~/.ssh/ship.pub
 
-# VPN
-Host lab1
-  HostName 172.22.160.131
-  User root
-  IdentityFile ~/.ssh/ship.pub
-
-
 ############ Lab 25 ############
 
-# LAN
-Host lab25l
+Host lab25
   HostName 192.168.1.36
   User root
   IdentityFile ~/.ssh/ship.pub
@@ -96,12 +83,12 @@ Host ai-data
   IdentityFile ~/.ssh/data-instance.pub
 
 Host dev-bastion
-  HostName bastion-private.dev.captain-eye.com
+  HostName bastion.dev.captain-eye.com
   User ubuntu
   IdentityFile ~/.ssh/dev-bastion.pub
 
+Host prod-bastion
+  HostName bastion.prod.captain-eye.com
+  User ubuntu
+  IdentityFile ~/.ssh/prod-bastion.pub
 
-Host some
-    HostName 223-back.ships.prod.captain-eye.com
-    User root
-    IdentityFile ~/.ssh/ship.pub

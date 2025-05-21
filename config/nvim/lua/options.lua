@@ -54,10 +54,12 @@ opt.list = true
 -- <space> is the leader key
 vim.g.mapleader = ' '
 
+-- views can only be fully collapsed with the global statusline
+vim.opt.laststatus = 3
 
 -- Diagnostic signs
 local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
 for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
