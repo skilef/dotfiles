@@ -30,6 +30,14 @@ granted_sso_role_name      = AdministratorAccess
 common_fate_generated_from = aws-sso
 credential_process         = granted credential-process --profile CentralLake/AdministratorAccess
 
+[profile CentralLake/AthenaReadOnlyAccess]
+granted_sso_start_url      = https://captain-eye.awsapps.com/start
+granted_sso_region         = eu-central-1
+granted_sso_account_id     = 888577037885
+granted_sso_role_name      = AthenaReadOnlyAccess
+common_fate_generated_from = aws-sso
+credential_process         = granted credential-process --profile CentralLake/AthenaReadOnlyAccess
+
 [profile Development/AdministratorAccess]
 granted_sso_start_url      = https://captain-eye.awsapps.com/start
 granted_sso_region         = eu-central-1

@@ -1,19 +1,21 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/felix/workspace/dotfiles
+- /home/felix/workspace/devops/captain-infra
+- /home/felix/workspace/devops/terraform-live/workloads/ecs-foundation
+- /home/felix/workspace/devops/terraform-live/workloads/mongodb-atlas
+- /home/felix/workspace/devops/terraform-live/workloads/ecs-services
 - /home/felix/workspace/devops/terraform-live/infrastructure/shared-services
 - /home/felix/workspace/devops/terraform-live/workloads/bastion
-- /home/felix/workspace/devops/captain-infra
 - /home/felix/workspace/devops/terraform-live/infrastructure/identity
-- /home/felix/workspace/devops/terraform-live/workloads/central-lake
-- /home/felix/workspace/devops/terraform-live/workloads/ecs-foundation
 - /home/felix/workspace/devops/terraform-modules/ecs-service
-- /home/felix/workspace/devops/terraform-live/workloads/rds
 - /home/felix/workspace/devops/captain-ansible
-- /home/felix/workspace/backend/captain-agent
 - /home/felix/workspace/devops/terraform-live/workloads/vpc
-- /home/felix/workspace/devops/terraform-live/workloads/mongodb-atlas
+- /home/felix/workspace/devops/terraform-live/workloads/rds
+- /home/felix/workspace/devops/captain-ci-images
+- /home/felix/workspace/devops/terraform-live/workloads/website
 - /home/felix/workspace/glue-jobs
+- /home/felix/workspace/backend/captain-agent
 - /home/felix/workspace/terraform-modules/ecs-service
 - /home/felix/workspace/backend/captain-serverless
 - /home/felix/workspace/terraform-modules/lambda
